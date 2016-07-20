@@ -45,6 +45,14 @@ UIScrollViewDelegate
     
 }
 
+#pragma mark - setter
+- (void)setPhoto:(id<WJPhotoProtocol>)photo{
+    if (_photo != photo) {
+        _photo = photo;
+    }
+    [self showImage];
+}
+
 - (void)showImage{
     if (_photo && !_imageView.image) {
         self.userInteractionEnabled = YES;

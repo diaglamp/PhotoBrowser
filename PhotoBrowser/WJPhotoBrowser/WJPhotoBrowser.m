@@ -139,6 +139,7 @@ UIScrollViewDelegate
     zoom.frame = [self frameForZoomAtIndex:index];
     zoom.tag = ZOOM_INDEX_TAG_OFFSET + index;
     zoom.backgroundColor = [self randomColor];
+    zoom.photo = [self photoAtIndex:index];
 }
 
 - (BOOL)isDisplayingZoomAtIndex:(NSInteger)index{
@@ -189,6 +190,23 @@ UIScrollViewDelegate
     return _photoCount;
 }
 
+- (id<WJPhotoProtocol>)photoAtIndex:(NSUInteger)index
+{
+    id <WJPhotoProtocol> photo = nil;
+    if (index < _photoArr.count) {
+        if ([_photoArr objectAtIndex:index] == [NSNull null]) {
+            if ([_dataSource respondsToSelector:@selector(photoBrowser:photoAtIndex:)]) {
+                photo = [_dataSource photoBrowser:self photoAtIndex:index];
+            }
+            if (photo)
+                [_photoArr replaceObjectAtIndex:index withObject:photo];
+        } else {
+            photo = [_photoArr objectAtIndex:index];
+        }
+    }
+    return photo;
+}
+
 
 #pragma mark - Calculate Frame
 - (CGSize)contentSizeForPagingScrollView{
@@ -237,6 +255,48 @@ UIScrollViewDelegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
+}
+
+#pragma mark - Notification Handle
+- (void)handleWJPhotoImageDidStartLoad:(NSNotification *)noti{
+    
+}
+
+- (void)handleWJPhotoImageDidFinishLoad:(NSNotification *)noti{
+    
+}
+
+- (void)handleWJPhotoImageDidFailLoad:(NSNotification *)noti{
+    
+}
+
+- (void)handleWJPhotoImageDidStartReload:(NSNotification *)noti{
+    
+}
+
+
+
+#pragma mark - observer
+- (void)add{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleWJPhotoImageDidStartLoad:)
+                                                 name:NOTI_PB_ImageDidStartLoad
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleWJPhotoImageDidFinishLoad:)
+                                                 name:NOTI_PB_ImageDidFinishLoad
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleWJPhotoImageDidFailLoad:)
+                                                 name:NOTI_PB_ImageDidFailLoad
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleWJPhotoImageDidStartReload:)
+                                                 name:NOTI_PB_ImageDidStartReload
+                                               object:nil];
 }
 
 #pragma mark - Tools

@@ -7,6 +7,7 @@
 //
 
 #import "WJPhoto.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface WJPhoto()
 {
@@ -72,9 +73,29 @@
 
 #pragma mark - Async Loading Image
 - (void)asyncLoadImageWithURL:(NSURL *)url{
-    [self notifyImageDidFinishLoad];
+    [self notifyImageDidStartLoad];
     
     //TODO:load image
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    [manager downloadImageWithURL:url
+                          options:0
+                         progress:^(NSInteger receivedSize, NSInteger expectedSize){
+                             
+                         }
+                        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                            
+                            if (!error)
+                            {
+                                _underlyingImage = image;
+                                
+                                [self notifyImageDidFinishLoad];
+                            }
+                            else
+                            {
+                                [self notifyImageDidFailLoadWithError:error];
+                            }
+                            
+                        }];
 }
 
 - (void)asyncLoadImageWithFilePath:(NSString *)path{
@@ -88,6 +109,36 @@
         _underlyingImage = nil;
         [self notifyImageDidFailLoadWithError:error];
     }
+}
+
+#pragma mark - CXPhotoProtocol Notify
+- (void)notifyImageDidStartLoad
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_PB_ImageDidStartLoad object:self];
+    });
+}
+
+- (void)notifyImageDidFinishLoad
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_PB_ImageDidFinishLoad object:self];
+    });
+}
+
+- (void)notifyImageDidFailLoadWithError:(NSError *)error
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSDictionary *notifyInfo = [NSDictionary dictionaryWithObjectsAndKeys:error,@"error", nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_PB_ImageDidFailLoad object:self userInfo:notifyInfo];
+    });
+}
+
+- (void)notifyImageDidStartReload
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_PB_ImageDidStartReload object:self userInfo:nil];
+    });
 }
 
 @end
