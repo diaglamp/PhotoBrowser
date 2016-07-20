@@ -15,6 +15,10 @@
 		8BDD298F1D3DD66E0095D113 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BDD298D1D3DD66E0095D113 /* LaunchScreen.storyboard */; };
 		8BDD299A1D3DD66E0095D113 /* PhotoBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD29991D3DD66E0095D113 /* PhotoBrowserTests.m */; };
 		8BDD29A51D3DD66E0095D113 /* PhotoBrowserUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD29A41D3DD66E0095D113 /* PhotoBrowserUITests.m */; };
+		8BDD29B51D3DD7190095D113 /* WJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD29B41D3DD7190095D113 /* WJPhotoBrowser.m */; };
+		8BDD29B81D3E0EAB0095D113 /* WJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD29B71D3E0EAB0095D113 /* WJPhoto.m */; };
+		8BDD29BC1D3E16050095D113 /* WJDataSourceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD29BB1D3E16050095D113 /* WJDataSourceVC.m */; };
+		8BDD29FE1D3E284D0095D113 /* WJZoomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD29FD1D3E284D0095D113 /* WJZoomScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,15 @@
 		8BDD29A01D3DD66E0095D113 /* PhotoBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDD29A41D3DD66E0095D113 /* PhotoBrowserUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoBrowserUITests.m; sourceTree = "<group>"; };
 		8BDD29A61D3DD66E0095D113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BDD29B31D3DD7190095D113 /* WJPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJPhotoBrowser.h; sourceTree = "<group>"; };
+		8BDD29B41D3DD7190095D113 /* WJPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJPhotoBrowser.m; sourceTree = "<group>"; };
+		8BDD29B61D3E0EAB0095D113 /* WJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJPhoto.h; sourceTree = "<group>"; };
+		8BDD29B71D3E0EAB0095D113 /* WJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJPhoto.m; sourceTree = "<group>"; };
+		8BDD29B91D3E0F040095D113 /* WJPhotoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJPhotoProtocol.h; sourceTree = "<group>"; };
+		8BDD29BA1D3E16040095D113 /* WJDataSourceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJDataSourceVC.h; sourceTree = "<group>"; };
+		8BDD29BB1D3E16050095D113 /* WJDataSourceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJDataSourceVC.m; sourceTree = "<group>"; };
+		8BDD29FC1D3E284D0095D113 /* WJZoomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJZoomScrollView.h; sourceTree = "<group>"; };
+		8BDD29FD1D3E284D0095D113 /* WJZoomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJZoomScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +114,7 @@
 		8BDD297E1D3DD66E0095D113 /* PhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				8BDD29B21D3DD6F00095D113 /* WJPhotoBrowser */,
 				8BDD29821D3DD66E0095D113 /* AppDelegate.h */,
 				8BDD29831D3DD66E0095D113 /* AppDelegate.m */,
 				8BDD29851D3DD66E0095D113 /* ViewController.h */,
@@ -138,6 +152,22 @@
 				8BDD29A61D3DD66E0095D113 /* Info.plist */,
 			);
 			path = PhotoBrowserUITests;
+			sourceTree = "<group>";
+		};
+		8BDD29B21D3DD6F00095D113 /* WJPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				8BDD29BA1D3E16040095D113 /* WJDataSourceVC.h */,
+				8BDD29BB1D3E16050095D113 /* WJDataSourceVC.m */,
+				8BDD29B31D3DD7190095D113 /* WJPhotoBrowser.h */,
+				8BDD29B41D3DD7190095D113 /* WJPhotoBrowser.m */,
+				8BDD29B61D3E0EAB0095D113 /* WJPhoto.h */,
+				8BDD29B71D3E0EAB0095D113 /* WJPhoto.m */,
+				8BDD29B91D3E0F040095D113 /* WJPhotoProtocol.h */,
+				8BDD29FC1D3E284D0095D113 /* WJZoomScrollView.h */,
+				8BDD29FD1D3E284D0095D113 /* WJZoomScrollView.m */,
+			);
+			path = WJPhotoBrowser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +300,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BDD29B81D3E0EAB0095D113 /* WJPhoto.m in Sources */,
+				8BDD29FE1D3E284D0095D113 /* WJZoomScrollView.m in Sources */,
 				8BDD29871D3DD66E0095D113 /* ViewController.m in Sources */,
+				8BDD29BC1D3E16050095D113 /* WJDataSourceVC.m in Sources */,
 				8BDD29841D3DD66E0095D113 /* AppDelegate.m in Sources */,
+				8BDD29B51D3DD7190095D113 /* WJPhotoBrowser.m in Sources */,
 				8BDD29811D3DD66E0095D113 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PhotoBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaohuoji.PhotoBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -427,6 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PhotoBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiaohuoji.PhotoBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -498,6 +534,7 @@
 				8BDD29AB1D3DD66E0095D113 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8BDD29AC1D3DD66E0095D113 /* Build configuration list for PBXNativeTarget "PhotoBrowserTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +543,7 @@
 				8BDD29AE1D3DD66E0095D113 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8BDD29AF1D3DD66E0095D113 /* Build configuration list for PBXNativeTarget "PhotoBrowserUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +552,7 @@
 				8BDD29B11D3DD66E0095D113 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

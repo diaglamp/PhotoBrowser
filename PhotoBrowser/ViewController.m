@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "WJDataSourceVC.h"
 
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UIButton *pushBtn;
 
 @end
 
@@ -19,9 +22,9 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)pushBtnClick:(UIButton *)sender {
+    WJDataSourceVC *vc = [[WJDataSourceVC alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
