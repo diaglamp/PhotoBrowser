@@ -23,6 +23,11 @@
 @property (nonatomic, assign) NSInteger reviewNum; //review number
 @property (nonatomic, assign) BOOL collected; //collected status
 
+//initialize
+- (instancetype)initWithImage:(UIImage *)image;
+- (instancetype)initWithURL:(NSURL *)url;
 
-
+//Class
++ (instancetype)photoWithImage:(UIImage *)image;
++ (instancetype)photoWithURL:(NSURL *)url;
 @end

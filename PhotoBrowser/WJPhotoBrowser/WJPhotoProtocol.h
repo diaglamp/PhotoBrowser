@@ -20,6 +20,7 @@
 
 @required
 
+- (UIImage *)underlyingImage;
 - (void)loadUnderlyingImageAndNotify;
 
 @optional
@@ -28,7 +29,7 @@
 //Notify
 - (void)notifyImageDidStartLoad;
 - (void)notifyImageDidFinishLoad;
-- (void)notifyImageDidFialLoadWithError:(NSError *)error;
+- (void)notifyImageDidFailLoadWithError:(NSError *)error;
 - (void)notifyImageDidStartReload;
 
 @end

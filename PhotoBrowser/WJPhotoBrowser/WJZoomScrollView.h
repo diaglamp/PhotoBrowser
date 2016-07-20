@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WJPhotoProtocol.h"
 
+@class WJPhoto,WJPhotoBrowser;
 @interface WJZoomScrollView : UIScrollView
+
+@property (nonatomic, strong) id<WJPhotoProtocol> photo;
+
 
 @end
